@@ -11,7 +11,7 @@
 hint: что такое print?
 """
 
-# Замените это своим кодом
+print('Hello world!')
 
 """
  _____         _      _____ 
@@ -27,8 +27,22 @@ hint: что такое print?
 hint: цикл, если и "%"
 """
 
-# Замените это своим кодом
+def fizz_buzz(n):
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        elif i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0:
+            print("Buzz")
+        else:
+            print(i)
 
+try:
+    user_input = int(input("Введите число: "))
+    fizz_buzz(user_input)
+except ValueError:
+    print("Пожалуйста, введите корректное целое число.")
 """
  _____         _      _____ 
 |_   _|       | |    |____ |
@@ -42,7 +56,19 @@ hint: цикл, если и "%"
 hint: https://ru.wikihow.com/%D0%B2%D1%8B%D1%81%D1%87%D0%B8%D1%82%D1%8B%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B5-%D0%B3%D0%BE%D0%B4%D1%8B
 """
 
-# Замените это своим кодом
+def is_leap_year(year):
+  if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+  return False
+
+try:
+    user_input = int(input("Введите год: "))
+    if is_leap_year(user_input):
+        print(f"{user_input} является високосным годом.")
+    else:
+        print(f"{user_input} не является високосным годом.")
+except ValueError:
+    print("Пожалуйста, введите корректное целое число.")
 
 """
  _____         _        ___ 
@@ -57,7 +83,16 @@ hint: https://ru.wikihow.com/%D0%B2%D1%8B%D1%81%D1%87%D0%B8%D1%82%D1%8B%D0%B2%D0
 hint: https://letpy.com/handbook/builtins/reversed/
 """
 
-# Замените это своим кодом
+def is_palindrome(value):
+    cleaned_value = str(value).replace(" ", "").lower()
+    return cleaned_value == cleaned_value[::-1]
+
+user_input = input("Введите строку или число: ")
+
+if is_palindrome(user_input):
+    print(f"{user_input} является палиндромом.")
+else:
+    print(f"{user_input} не является палиндромом.")
 
 """
  _____         _      _____ 
@@ -72,7 +107,19 @@ hint: https://letpy.com/handbook/builtins/reversed/
 hint: https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B0%D0%BB
 """
 
-# Замените это своим кодом
+def factorial_iterative(x):
+    if x < 0:
+        return "Факториал не определен для отрицательных чисел."
+    result = 1
+    for i in range(1, x + 1):
+        result *= i
+    return result
+
+try:
+    user_input = int(input("Введите неотрицательное целое число: "))
+    print(f"Факториал {user_input} равен {factorial_iterative(user_input)}.")
+except ValueError:
+    print("Пожалуйста, введите корректное целое число.")
 
 """
  _____         _       ____ 
@@ -88,7 +135,22 @@ hint: x <= 1 - не простые числа
 hint 2: %
 """
 
-# Замените это своим кодом
+def is_prime(x):
+    if x <= 1:
+        return False
+    for i in range(2, int(x**0.5) + 1):
+        if x % i == 0:
+            return False
+    return True
+
+try:
+    user_input = int(input("Введите целое число: "))
+    if is_prime(user_input):
+        print(f"{user_input} является простым числом.")
+    else:
+        print(f"{user_input} не является простым числом.")
+except ValueError:
+    print("Пожалуйста, введите корректное целое число.")
 
 """
  _____         _      ______
@@ -103,7 +165,20 @@ hint 2: %
 hint: циклы
 """
 
-# Замените это своим кодом
+def sum_of_digits(x):
+    total = 0
+    x = abs(x) 
+    while x > 0:
+        total += x % 10  
+        x //= 10  
+    return total
+
+try:
+    user_input = int(input("Введите целое число: "))
+    result = sum_of_digits(user_input)
+    print(f"Сумма всех цифр числа {user_input} равна {result}.")
+except ValueError:
+    print("Пожалуйста, введите корректное целое число.")
 
 """
  _____         _      _____ 
@@ -119,7 +194,23 @@ hint: 1, 1, 2, 3 https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D
 hint 2: попробуйте решить с помощью рекурсии
 """
 
-# Замените это своим кодом
+def fibonacci_count(x):
+    fib_sequence = []
+    a, b = 0, 1
+    for _ in range(x):
+        fib_sequence.append(a)
+        a, b = b, a + b
+    return fib_sequence
+
+try:
+    count = int(input("Введите количество элементов последовательности Фибоначчи: "))
+    if count < 0:
+        print("Пожалуйста, введите неотрицательное число.")
+    else:
+        result = fibonacci_count(count)
+        print(f"Последовательность Фибоначчи до {count} элементов: {result}")
+except ValueError:
+    print("Пожалуйста, введите корректное целое число.")
 
 
 
